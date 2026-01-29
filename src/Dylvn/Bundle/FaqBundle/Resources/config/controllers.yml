@@ -1,0 +1,15 @@
+services:
+    _defaults:
+        public: true
+
+    Dylvn\Bundle\FaqBundle\Controller\CategoryController:
+        calls:
+            - [ 'setContainer', [ '@Psr\Container\ContainerInterface' ] ]
+        tags:
+            - { name: container.service_subscriber }
+
+    Dylvn\Bundle\FaqBundle\Controller\ItemController:
+        calls:
+            - [ 'setContainer', [ '@Psr\Container\ContainerInterface' ] ]
+        tags:
+            - { name: container.service_subscriber }

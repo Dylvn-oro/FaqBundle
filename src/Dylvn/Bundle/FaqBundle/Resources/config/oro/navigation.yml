@@ -1,0 +1,67 @@
+navigation:
+    menu_config:
+        items:
+            dylvn_tab:
+                label: dylvn.organization_label
+                uri: '#'
+                extras:
+                    icon: fa-question
+            dylvn_faq_tab:
+                label: dylvn.faq.package_label
+                uri: '#'
+            # Categories
+            dylvn_faq_category_list:
+                label: dylvn.faq.category.entity_plural_label
+                route: dylvn_faq_category_index
+                extras:
+                    routes:
+                        - dylvn_faq_category_index
+                        - dylvn_faq_category_view
+                        - dylvn_faq_category_create
+                        - dylvn_faq_category_update
+            shortcut_dylvn_faq_category_create:
+                label: dylvn.faq.shortcut.new_category.label
+                route: dylvn_faq_category_create
+            shortcut_dylvn_faq_category_index:
+                label: dylvn.faq.shortcut.list_categories.label
+                route: dylvn_faq_category_index
+            # Items
+            dylvn_faq_item_list:
+                label: dylvn.faq.item.entity_plural_label
+                route: dylvn_faq_item_index
+                extras:
+                    routes:
+                        - dylvn_faq_item_index
+                        - dylvn_faq_item_view
+                        - dylvn_faq_item_create
+                        - dylvn_faq_item_update
+            shortcut_dylvn_faq_item_create:
+                label: dylvn.faq.shortcut.new_item.label
+                route: dylvn_faq_item_create
+            shortcut_dylvn_faq_item_index:
+                label: dylvn.faq.shortcut.list_items.label
+                route: dylvn_faq_item_index
+        tree:
+            application_menu:
+                children:
+                    dylvn_tab:
+                        children:
+                            dylvn_faq_tab:
+                                children:
+                                    dylvn_faq_category_list: ~
+                                    dylvn_faq_item_list: ~
+            shortcuts:
+                children:
+                    shortcut_dylvn_faq_category_create: ~
+                    shortcut_dylvn_faq_category_index: ~
+                    shortcut_dylvn_faq_item_create: ~
+                    shortcut_dylvn_faq_item_index: ~
+    titles:
+        dylvn_faq_category_index: ~
+        dylvn_faq_category_view: '%title% - oro.ui.view'
+        dylvn_faq_category_create: oro.ui.create_entity
+        dylvn_faq_category_update: '%title% - oro.ui.edit'
+        dylvn_faq_item_index: ~
+        dylvn_faq_item_view: '%title% - oro.ui.view'
+        dylvn_faq_item_create: oro.ui.create_entity
+        dylvn_faq_item_update: '%title% - oro.ui.edit'

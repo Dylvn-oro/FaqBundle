@@ -1,0 +1,21 @@
+{% extends '@OroUI/actions/index.html.twig' %}
+{% import '@OroUI/macros.html.twig' as UI %}
+{% set gridName = 'dylvn-faq-category-grid' %}
+{% set pageTitle = 'dylvn.faq.category.entity_plural_label'|trans %}
+
+{% block navButtons %}
+    {% import '@OroUI/macros.html.twig' as UI %}
+
+    {% include '@OroImportExport/ImportExport/buttons_from_configuration.html.twig' with {
+        'alias': 'dylvn_faq_category'
+    } %}
+
+    {% if is_granted('dylvn_faq_category_create') %}
+        <div class="btn-group">
+            {{ UI.addButton({
+                'path': path('dylvn_faq_category_create'),
+                'entity_label': 'dylvn.faq.category.entity_label'|trans
+            }) }}
+        </div>
+    {% endif %}
+{% endblock %}

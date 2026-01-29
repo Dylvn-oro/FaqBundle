@@ -1,0 +1,63 @@
+dylvn:
+    organization_label: 'Dylvn'
+    faq:
+        section:
+            category:
+                general:
+                    label: 'General'
+            item:
+                general:
+                    label: 'General'
+        package_label: 'FAQ'
+        category:
+            entity_label: 'Category'
+            entity_plural_label: 'Categories'
+            category_items:
+                label: 'Category Items'
+            code:
+                label: 'Code'
+            descriptions:
+                label: 'Descriptions'
+            enabled:
+                label: 'Enabled'
+            id:
+                label: 'ID'
+            organization:
+                label: 'Organization'
+            owner:
+                label: 'Owner'
+            titles:
+                label: 'Titles'
+            position:
+                label: 'Position'
+        item:
+            entity_label: 'Item'
+            entity_plural_label: 'Items'
+            answers:
+                label: 'Answers'
+            questions:
+                label: 'Questions'
+            id:
+                label: 'ID'
+            organization:
+                label: 'Organization'
+            owner:
+                label: 'Owner'
+            category_items:
+                label: 'Category Items'
+            enabled:
+                label: 'Enabled'
+            position:
+                label: 'Position'
+        categoryitem:
+            item:
+                label: 'Item'
+            category:
+                label: 'Category'
+            enabled:
+                label: 'Enabled'
+            position:
+                label: 'Position'
+            form:
+                category_item_collection:
+                    add: 'Add Category Item'

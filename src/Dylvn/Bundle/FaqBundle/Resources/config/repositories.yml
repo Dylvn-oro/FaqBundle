@@ -1,0 +1,10 @@
+services:
+    Dylvn\Bundle\FaqBundle\Entity\Repository\CategoryRepository:
+        parent: oro_entity.abstract_repository
+        tags:
+            - { name: doctrine.repository_service }
+
+    Dylvn\Bundle\FaqBundle\Entity\Repository\ItemRepository:
+        parent: oro_entity.abstract_repository
+        tags:
+            - { name: doctrine.repository_service }

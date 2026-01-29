@@ -1,0 +1,32 @@
+{
+  "name": "dylvn/faq-bundle",
+  "description": "Oro FAQ (Frequently asked questions) integration",
+  "type": "symfony-bundle",
+  "keywords": ["Oro", "FAQ", "question", "Orocommerce"],
+  "license": "OSL-3.0",
+  "authors": [
+    {
+      "name": "Dylvn"
+    }
+  ],
+  "autoload": {
+    "psr-4": {"Dylvn\\Bundle\\FaqBundle\\": "src/Dylvn/Bundle/FaqBundle"},
+    "exclude-from-classmap": ["**/Tests/"]
+  },
+  "require": {
+    "oro/commerce": "5.1.*"
+  },
+  "repositories": {
+    "oro": {
+      "type": "composer",
+      "url": "https://packagist.oroinc.com"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "branch-alias": {
+      "dev-master": "5.1-dev"
+    }
+  }
+}

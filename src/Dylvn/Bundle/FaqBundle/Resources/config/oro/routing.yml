@@ -1,0 +1,9 @@
+dylvn_faq_category:
+    resource:     "@DylvnFaqBundle/Controller/CategoryController.php"
+    type:         annotation
+    prefix:       /dylvn/faq/category
+
+dylvn_faq_item:
+    resource:     "@DylvnFaqBundle/Controller/ItemController.php"
+    type:         annotation
+    prefix:       /dylvn/faq/item

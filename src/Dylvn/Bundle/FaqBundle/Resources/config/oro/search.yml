@@ -1,0 +1,28 @@
+search:
+    Dylvn\Bundle\FaqBundle\Entity\Item:
+        alias: dylvn_faq_item
+        route:
+            name: dylvn_faq_item_view
+            parameters:
+                id: id
+        search_template: '@DylvnFaq/Item/searchResult.html.twig'
+        fields:
+            -
+                name: question
+                target_type: text
+                target_fields:
+                    - question
+            -
+                name: answer
+                target_type: text
+                target_fields:
+                    - answer
+            -
+                name: categoryItems
+                relation_type: one-to-many
+                relation_fields:
+                    -
+                        name: code
+                        target_type: text
+                        target_fields:
+                            - categoryCode

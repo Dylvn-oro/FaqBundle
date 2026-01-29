@@ -1,0 +1,176 @@
+datagrids:
+    dylvn-faq-category-grid:
+        extended_entity_name: Dylvn\Bundle\FaqBundle\Entity\Category
+        acl_resource: dylvn_faq_category_view
+        options:
+            entityHint: dylvn.faq.category.entity_plural_label
+        properties:
+            id: ~
+            title:
+                type: localized_value
+                data_name: titles
+            view_link:
+                type: url
+                route: dylvn_faq_category_view
+                params:
+                    - id
+        source:
+            type: orm
+            query:
+                select:
+                    - category.id
+                    - category.code
+                    - category.position
+                    - category.enabled
+                    - category.createdAt
+                    - category.updatedAt
+                from:
+                    - { table: Dylvn\Bundle\FaqBundle\Entity\Category, alias: category }
+        columns:
+            code:
+                label: dylvn.faq.category.code.label
+            title:
+                label: dylvn.faq.category.title.label
+            position:
+                label: dylvn.faq.category.position.label
+            enabled:
+                label: dylvn.faq.category.enabled.label
+                frontend_type: select
+                choices:
+                    dylvn.faq.category.filters.disabled: 0
+                    dylvn.faq.category.filters.enabled: 1
+            createdAt:
+                label: dylvn.faq.category.createdat.label
+                frontend_type: datetime
+            updatedAt:
+                label: dylvn.faq.category.updatedat.label
+                frontend_type: datetime
+        sorters:
+            columns:
+                code:
+                    data_name: category.code
+                title:
+                    data_name: titles.string
+                position:
+                    data_name: category.position
+                enabled:
+                    data_name: category.enabled
+                createdAt:
+                    data_name: category.createdAt
+                updatedAt:
+                    data_name: category.updatedAt
+            default:
+                createdAt: DESC
+        filters:
+            columns:
+                code:
+                    type: string
+                    data_name: category.code
+                title:
+                    type: string
+                    data_name: title
+                position:
+                    type: number
+                    data_name: category.position
+                enabled:
+                    type: boolean
+                    data_name: category.enabled
+                    options:
+                        field_options:
+                            choices:
+                                dylvn.faq.category.filters.disabled: 2
+                                dylvn.faq.category.filters.enabled: 1
+                createdAt:
+                    type: datetime
+                    data_name: category.createdAt
+                updatedAt:
+                    type: datetime
+                    data_name: category.updatedAt
+        actions:
+            view:
+                type: navigate
+                label: oro.grid.action.view
+                link: view_link
+                icon: eye
+                acl_resource: oro_cms_content_block_view
+                rowAction: true
+
+    dylvn-faq-item-grid:
+        extended_entity_name: Dylvn\Bundle\FaqBundle\Entity\Item
+        acl_resource: dylvn_faq_item_view
+        options:
+            entityHint: dylvn.faq.item.entity_plural_label
+        properties:
+            id: ~
+            question:
+                type: localized_value
+                data_name: questions
+            view_link:
+                type: url
+                route: dylvn_faq_item_view
+                params:
+                    - id
+        source:
+            type: orm
+            query:
+                select:
+                    - item.id
+                    - item.position
+                    - item.enabled
+                    - category.code as category_code
+                    - item.createdAt
+                    - item.updatedAt
+                from:
+                    - { table: Dylvn\Bundle\FaqBundle\Entity\Item, alias: item }
+                join:
+                    left:
+                        - { join: item.category, alias: category }
+        columns:
+            code:
+                label: dylvn.faq.item.code.label
+            question:
+                label: dylvn.faq.item.question.label
+            category_code:
+                label: dylvn.faq.item.category.label
+            position:
+                label: dylvn.faq.item.position.label
+            enabled:
+                label: dylvn.faq.item.enabled.label
+                frontend_type: select
+                choices:
+                    dylvn.faq.item.filters.disabled: 0
+                    dylvn.faq.item.filters.enabled: 1
+            createdAt:
+                label: dylvn.faq.item.createdat.label
+                frontend_type: datetime
+            updatedAt:
+                label: dylvn.faq.item.updatedat.label
+                frontend_type: datetime
+        sorters:
+            columns:
+                code:
+                    data_name: item.code
+                question:
+                    data_name: questions.string
+                category_code:
+                    data_name: category_code.code
+                position:
+                    data_name: item.position
+                enabled:
+                    data_name: item.enabled
+                createdAt:
+                    data_name: item.createdAt
+                updatedAt:
+                    data_name: item.updatedAt
+            default:
+                createdAt: DESC
+        filters:
+            columns:
+                code:
+                    type: string
+                    data_name: item.code
+                question:
+                    type: string
+                    data_name: question
+                category_code:
+                    type: string

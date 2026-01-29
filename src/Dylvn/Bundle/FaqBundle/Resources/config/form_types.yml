@@ -1,0 +1,28 @@
+services:
+    dylvn_faq.form.type.category:
+        class: Dylvn\Bundle\FaqBundle\Form\Type\CategoryType
+        tags:
+            - { name: form.type, alias: dylvn_faq_category_type }
+
+    dylvn_faq.form.type.item:
+        class: Dylvn\Bundle\FaqBundle\Form\Type\ItemType
+        tags:
+            - { name: form.type, alias: dylvn_faq_item_type }
+
+    dylvn_faq.form.type.category_item:
+        class: Dylvn\Bundle\FaqBundle\Form\Type\CategoryItemType
+        tags:
+            - { name: form.type, alias: dylvn_faq_category_item_type }
+
+    dylvn_faq.form.type.category_item_collection:
+        class: Dylvn\Bundle\FaqBundle\Form\Type\CategoryItemCollectionType
+        tags:
+            - { name: form.type, alias: dylvn_faq_category_item_collection_type }
+
+    dylvn_faq.form.autocomplete.item.search_handler:
+        parent: oro_form.autocomplete.search_handler
+        arguments:
+            - 'Dylvn\Bundle\FaqBundle\Entity\Item'
+            - [ 'title' ]
+        tags:
+            - { name: oro_form.autocomplete.search_handler, alias: dylvn_faq_item, acl_resource: dylvn_faq_item_view }
