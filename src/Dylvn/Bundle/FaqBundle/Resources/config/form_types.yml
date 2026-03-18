@@ -23,6 +23,6 @@ services:
         parent: oro_form.autocomplete.search_handler
         arguments:
             - 'Dylvn\Bundle\FaqBundle\Entity\Item'
-            - [ 'title' ]
+            - [ 'question' ]
         tags:
             - { name: oro_form.autocomplete.search_handler, alias: dylvn_faq_item, acl_resource: dylvn_faq_item_view }

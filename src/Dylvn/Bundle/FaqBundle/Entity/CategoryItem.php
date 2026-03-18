@@ -7,6 +7,7 @@ namespace Dylvn\Bundle\FaqBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Oro\Bundle\EntityBundle\EntityProperty\DatesAwareInterface;
 use Oro\Bundle\EntityBundle\EntityProperty\DatesAwareTrait;
+use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
 use Oro\Bundle\EntityExtendBundle\Entity\ExtendEntityInterface;
 use Oro\Bundle\EntityExtendBundle\Entity\ExtendEntityTrait;
 use Oro\Bundle\OrganizationBundle\Entity\OrganizationAwareInterface;
@@ -20,6 +21,7 @@ use Oro\Bundle\UserBundle\Entity\Ownership\AuditableUserAwareTrait;
  *          @ORM\UniqueConstraint(name="dylvn_faq_category_item_unq_idx", columns={"category_id", "item_id"})
  *      }
  * )
+ * @Config()
  */
 class CategoryItem  implements
     DatesAwareInterface,

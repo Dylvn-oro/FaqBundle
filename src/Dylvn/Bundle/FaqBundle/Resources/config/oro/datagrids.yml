@@ -1,7 +1,7 @@
 datagrids:
     dylvn-faq-category-grid:
         extended_entity_name: Dylvn\Bundle\FaqBundle\Entity\Category
-        acl_resource: dylvn_faq_category_view
+#        acl_resource: dylvn_faq_category_view
         options:
             entityHint: dylvn.faq.category.entity_plural_label
         properties:
@@ -86,14 +86,14 @@ datagrids:
                 updatedAt:
                     type: datetime
                     data_name: category.updatedAt
-        actions:
-            view:
-                type: navigate
-                label: oro.grid.action.view
-                link: view_link
-                icon: eye
-                acl_resource: oro_cms_content_block_view
-                rowAction: true
+#        actions:
+#            view:
+#                type: navigate
+#                label: oro.grid.action.view
+#                link: view_link
+#                icon: eye
+#                acl_resource: oro_cms_content_block_view
+#                rowAction: true
 
     dylvn-faq-item-grid:
         extended_entity_name: Dylvn\Bundle\FaqBundle\Entity\Item
@@ -124,7 +124,8 @@ datagrids:
                     - { table: Dylvn\Bundle\FaqBundle\Entity\Item, alias: item }
                 join:
                     left:
-                        - { join: item.category, alias: category }
+                        - { join: item.categoryItems, alias: categoryItem }
+                        - { join: categoryItem.category, alias: category }
         columns:
             code:
                 label: dylvn.faq.item.code.label
@@ -174,3 +175,4 @@ datagrids:
                     data_name: question
                 category_code:
                     type: string
+                    data_name: category_code

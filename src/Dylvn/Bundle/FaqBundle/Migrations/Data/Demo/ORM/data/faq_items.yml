@@ -1,0 +1,56 @@
+faq_items:
+    item_delivery_time:
+        position: 1
+        enabled: true
+        questions:
+            - locale: default
+              value: "What is the delivery time?"
+            - locale: fr_FR
+              value: "Quel est le délai de livraison ?"
+        answers:
+            - locale: default
+              value: "<p>Delivery usually takes between 2 and 4 business days.</p>"
+            - locale: fr_FR
+              value: "<p>La livraison prend généralement entre 2 et 4 jours ouvrés.</p>"
+
+    item_shipping_cost:
+        position: 2
+        enabled: true
+        questions:
+            - locale: default
+              value: "How much does shipping cost?"
+            - locale: fr_FR
+              value: "Quels sont les frais de livraison ?"
+        answers:
+            - locale: default
+              value: "<p>Shipping costs depend on your location and order value.</p>"
+            - locale: fr_FR
+              value: "<p>Les frais de livraison dépendent de votre localisation et du montant de la commande.</p>"
+
+    item_returns:
+        position: 3
+        enabled: true
+        questions:
+            - locale: default
+              value: "Can I return a product?"
+            - locale: fr_FR
+              value: "Puis-je retourner un produit ?"
+        answers:
+            - locale: default
+              value: "<p>You can return a product within 14 days after reception.</p>"
+            - locale: fr_FR
+              value: "<p>Vous pouvez retourner un produit sous 14 jours après réception.</p>"
+
+    item_payment_methods:
+        position: 4
+        enabled: true
+        questions:
+            - locale: default
+              value: "Which payment methods are accepted?"
+            - locale: fr_FR
+              value: "Quels moyens de paiement sont acceptés ?"
+        answers:
+            - locale: default
+              value: "<p>We accept credit cards, PayPal and bank transfers.</p>"
+            - locale: fr_FR
+              value: "<p>Nous acceptons les cartes bancaires, PayPal et les virements.</p>"

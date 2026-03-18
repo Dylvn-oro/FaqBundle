@@ -1,0 +1,56 @@
+faq_categories:
+    delivery:
+        code: delivery
+        position: 1
+        enabled: true
+        titles:
+            - locale: default
+              value: "Delivery"
+            - locale: fr_FR
+              value: "Livraison"
+        descriptions:
+            - locale: default
+              value: "<p>All information about shipping and delivery.</p>"
+            - locale: fr_FR
+              value: "<p>Toutes les informations concernant la livraison.</p>"
+        items:
+            - ref: faq_item_item_delivery_time
+              position: 1
+            - ref: faq_item_item_shipping_cost
+              position: 2
+
+    returns:
+        code: returns
+        position: 2
+        enabled: true
+        titles:
+            - locale: default
+              value: "Returns & Refunds"
+            - locale: fr_FR
+              value: "Retours & Remboursements"
+        descriptions:
+            - locale: default
+              value: "<p>Everything you need to know about returns.</p>"
+            - locale: fr_FR
+              value: "<p>Tout ce qu’il faut savoir sur les retours.</p>"
+        items:
+            - ref: faq_item_item_returns
+              position: 1
+
+    payment:
+        code: payment
+        position: 3
+        enabled: true
+        titles:
+            - locale: default
+              value: "Payment"
+            - locale: fr_FR
+              value: "Paiement"
+        descriptions:
+            - locale: default
+              value: "<p>Payment methods and billing.</p>"
+            - locale: fr_FR
+              value: "<p>Moyens de paiement et facturation.</p>"
+        items:
+            - ref: faq_item_item_payment_methods
+              position: 1

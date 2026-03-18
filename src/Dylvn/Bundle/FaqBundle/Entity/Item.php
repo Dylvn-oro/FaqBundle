@@ -222,7 +222,7 @@ class Item implements
         return $this->position;
     }
 
-    public function setPosition(int $position): Category
+    public function setPosition(int $position): Item
     {
         $this->position = $position;
         return $this;
@@ -233,7 +233,7 @@ class Item implements
         return $this->enabled;
     }
 
-    public function setEnabled(bool $enabled): Category
+    public function setEnabled(bool $enabled): Item
     {
         $this->enabled = $enabled;
         return $this;
