@@ -26,3 +26,8 @@ services:
             - [ 'question' ]
         tags:
             - { name: oro_form.autocomplete.search_handler, alias: dylvn_faq_item, acl_resource: dylvn_faq_item_view }
+
+    dylvn_faq.form.extension.system_page_variant:
+        class: Dylvn\Bundle\FaqBundle\Form\Extension\SystemPageVariantTypeExtension
+        tags:
+            - { name: form.type_extension, extended_type: Oro\Bundle\WebCatalogBundle\Form\Type\SystemPageVariantType }

@@ -57,6 +57,7 @@ navigation:
                     shortcut_dylvn_faq_item_create: ~
                     shortcut_dylvn_faq_item_index: ~
     titles:
+
         dylvn_faq_category_index: ~
         dylvn_faq_category_view: '%title% - oro.ui.view'
         dylvn_faq_category_create: oro.ui.create_entity
@@ -65,3 +66,5 @@ navigation:
         dylvn_faq_item_view: '%title% - oro.ui.view'
         dylvn_faq_item_create: oro.ui.create_entity
         dylvn_faq_item_update: '%title% - oro.ui.edit'
+        dylvn_faq_frontend_index: dylvn.faq.frontend.page_title
+

@@ -7,3 +7,10 @@ dylvn_faq_item:
     resource:     "@DylvnFaqBundle/Controller/ItemController.php"
     type:         annotation
     prefix:       /dylvn/faq/item
+
+dylvn_faq_frontend:
+    resource:     "@DylvnFaqBundle/Controller/Frontend/FaqController.php"
+    type:         annotation
+    prefix:       /faq
+    options:
+        frontend: true

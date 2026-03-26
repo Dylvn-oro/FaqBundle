@@ -1,0 +1,16 @@
+/vendor/
+/node_modules/
+/var/
+/public/bundles/
+/.env.local
+/.env.*.local
+*.cache
+*.log
+*.swp
+*~
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+output.txt

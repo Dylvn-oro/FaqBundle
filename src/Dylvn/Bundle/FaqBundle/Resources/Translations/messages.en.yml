@@ -61,3 +61,6 @@ dylvn:
             form:
                 category_item_collection:
                     add: 'Add Category Item'
+        frontend:
+            page_title: "FAQ"
+

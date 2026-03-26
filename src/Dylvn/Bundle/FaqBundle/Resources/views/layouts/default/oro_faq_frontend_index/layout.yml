@@ -1,0 +1,16 @@
+layout:
+    actions:
+        - '@setBlockTheme':
+              themes: 'layout.html.twig'
+        - '@addTree':
+              items:
+                  faq_index_page:
+                      blockType: container
+                  faq_page_title:
+                      blockType: text
+                      options:
+                          text: 'FAQ'
+              tree:
+                  page_content:
+                      faq_index_page:
+                          faq_page_title: ~
