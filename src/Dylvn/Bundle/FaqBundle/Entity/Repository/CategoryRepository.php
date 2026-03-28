@@ -27,11 +27,19 @@ class CategoryRepository extends ServiceEntityRepository
     public function findVisibleOnFaqPage(): array
     {
         return $this->createQueryBuilder('c')
+            ->addSelect('ci', 'i', 'iq', 'ia')
+            ->innerJoin('c.categoryItems', 'ci')
+            ->innerJoin('ci.item', 'i')
+            ->leftJoin('i.questions', 'iq')
+            ->leftJoin('i.answers', 'ia')
             ->where('c.enabled = :enabled')
             ->andWhere('c.visibleOnFaqPage = :visible')
+            ->andWhere('ci.enabled = :enabled')
+            ->andWhere('i.enabled = :enabled')
             ->setParameter('enabled', true)
             ->setParameter('visible', true)
             ->orderBy('c.position', 'ASC')
+            ->addOrderBy('ci.position', 'ASC')
             ->getQuery()
             ->getResult();
     }
