@@ -6,6 +6,7 @@ namespace Dylvn\Bundle\FaqBundle\Form\Type;
 
 use Dylvn\Bundle\FaqBundle\Entity\Item;
 use Oro\Bundle\CMSBundle\Form\Type\WYSIWYGValueType;
+use Oro\Bundle\FormBundle\Form\Type\OroRichTextType;
 use Oro\Bundle\LocaleBundle\Entity\LocalizedFallbackValue;
 use Oro\Bundle\LocaleBundle\Form\Type\LocalizedFallbackValueCollectionType;
 use Symfony\Component\Form\AbstractType;
@@ -24,7 +25,7 @@ class ItemType extends AbstractType
                 'questions',
                 LocalizedFallbackValueCollectionType::class,
                 [
-                    'label' => 'dylvn.faq.category.questions.label',
+                    'label' => 'dylvn.faq.item.questions.label',
                     'required' => true,
                     'entry_options' => ['constraints' => [new NotBlank()]]
                 ]
@@ -33,12 +34,16 @@ class ItemType extends AbstractType
                 'answers',
                 LocalizedFallbackValueCollectionType::class,
                 [
-                    'label' => 'oro.product.brand.answers.label',
+                    'label' => 'dylvn.faq.item.answers.label',
                     'required' => false,
-                    'field' => ['wysiwyg', 'wysiwyg_style', 'wysiwyg_properties'],
-                    'entry_type' => WYSIWYGValueType::class,
+                    'field' => 'text',
+                    'entry_type' => OroRichTextType::class,
                     'entry_options' => [
-                        'entity_class' => LocalizedFallbackValue::class
+                        'wysiwyg_options' => [
+                            'elementpath' => true,
+                            'resize' => true,
+                            'height' => 300,
+                        ]
                     ],
                     'use_tabs' => true,
                 ]
@@ -48,7 +53,7 @@ class ItemType extends AbstractType
                 'enabled',
                 CheckboxType::class,
                 [
-                    'label' => 'dylvn.faq.category.enabled.label',
+                    'label' => 'dylvn.faq.item.enabled.label',
                     'required' => false
                 ]
             )

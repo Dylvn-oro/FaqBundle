@@ -1,6 +1,7 @@
 dylvn:
     organization_label: 'Dylvn'
     faq:
+
         section:
             category:
                 general:
@@ -30,6 +31,8 @@ dylvn:
                 label: 'Titles'
             position:
                 label: 'Position'
+            visible_on_faq_page:
+                label: 'Visible on FAQ page'
         item:
             entity_label: 'Item'
             entity_plural_label: 'Items'
@@ -50,6 +53,7 @@ dylvn:
             position:
                 label: 'Position'
         categoryitem:
+            entity_label: 'Category Item'
             item:
                 label: 'Item'
             category:
@@ -58,9 +62,11 @@ dylvn:
                 label: 'Enabled'
             position:
                 label: 'Position'
+
             form:
                 category_item_collection:
                     add: 'Add Category Item'
         frontend:
             page_title: "FAQ"
+
 

@@ -20,4 +20,19 @@ class CategoryRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Category::class);
     }
+
+    /**
+     * @return Category[]
+     */
+    public function findVisibleOnFaqPage(): array
+    {
+        return $this->createQueryBuilder('c')
+            ->where('c.enabled = :enabled')
+            ->andWhere('c.visibleOnFaqPage = :visible')
+            ->setParameter('enabled', true)
+            ->setParameter('visible', true)
+            ->orderBy('c.position', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
 }

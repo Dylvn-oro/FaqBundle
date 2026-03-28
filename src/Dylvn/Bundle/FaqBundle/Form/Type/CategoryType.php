@@ -76,6 +76,10 @@ class CategoryType extends AbstractType
                     'error_bubbling' => false
                 ]
             )
+            ->add('visibleOnFaqPage', CheckboxType::class, [
+                'label' => 'dylvn.faq.category.visible_on_faq_page.label',
+                'required' => false,
+            ])
         ;
     }
 

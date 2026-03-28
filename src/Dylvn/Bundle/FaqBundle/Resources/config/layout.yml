@@ -1,0 +1,6 @@
+services:
+    Dylvn\Bundle\FaqBundle\Layout\DataProvider\FaqPageProvider:
+        arguments:
+            - '@Dylvn\Bundle\FaqBundle\Entity\Repository\CategoryRepository'
+        tags:
+            - { name: layout.data_provider, alias: faq_page }

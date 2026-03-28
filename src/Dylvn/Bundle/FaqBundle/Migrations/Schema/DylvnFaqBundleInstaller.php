@@ -124,6 +124,7 @@ class DylvnFaqBundleInstaller implements Installation
         $table->addColumn('code', 'string', ['length' => 255]);
         $table->addColumn('position', 'integer', ['default' => '0']);
         $table->addColumn('enabled', 'boolean', ['default' => '1']);
+        $table->addColumn('visible_on_faq_page', 'boolean', ['default' => '1']);
         $table->addColumn('created_at', 'datetime', []);
         $table->addColumn('updated_at', 'datetime', []);
         $table->addColumn('serialized_data', 'json', ['notnull' => false]);

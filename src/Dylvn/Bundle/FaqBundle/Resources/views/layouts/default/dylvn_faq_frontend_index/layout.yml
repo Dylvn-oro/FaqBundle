@@ -10,7 +10,13 @@ layout:
                       blockType: text
                       options:
                           text: 'FAQ'
+                  faq_categories_list:
+                      blockType: container
+                      options:
+                          vars:
+                              categories: '=data["faq_page"].getCategories()'
               tree:
                   page_content:
                       faq_index_page:
                           faq_page_title: ~
+                          faq_categories_list: ~

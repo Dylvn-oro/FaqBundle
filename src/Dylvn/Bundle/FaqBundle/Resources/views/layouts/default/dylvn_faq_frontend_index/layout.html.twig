@@ -1,0 +1,37 @@
+{% block _faq_index_page_widget %}
+    <div class="faq-index-page">
+        {{ block_widget(block) }}
+    </div>
+{% endblock %}
+
+{% block _faq_page_title_widget %}
+    <h1 class="faq-index-page__title">{{ block.vars.text }}</h1>
+{% endblock %}
+
+{% block _faq_categories_list_widget %}
+
+    {%- import '@OroCMS/macros.html.twig' as CMS -%}
+    <div class="category-long-description cms-typography"></div>
+
+    <div class="faq-categories">
+        {% for category in categories %}
+            <div class="faq-category">
+                <h2 class="faq-category__title">{{ category.defaultTitle }}</h2>
+                <ul class="faq-category__items">
+                    {% for categoryItem in category.categoryItems %}
+                        {% set question = categoryItem.item.questions|localized_value %}
+                        {% set answer = categoryItem.item.answers|localized_value %}
+                        <li class="faq-category__item">
+                            <p class="faq-category__item-question">
+                                {{ question }}
+                            </p>
+                            <div class="faq-category__item-answer cms-typography">
+                                {{ answer|oro_html_sanitize }}
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

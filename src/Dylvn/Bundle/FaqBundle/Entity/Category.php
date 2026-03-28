@@ -160,6 +160,13 @@ class Category implements
      */
     private $categoryItems;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="visible_on_faq_page", type="boolean", options={"default"=true})
+     */
+    private bool $visibleOnFaqPage = true;
+
     public function __construct()
     {
         $this->titles = new ArrayCollection();
@@ -286,6 +293,17 @@ class Category implements
             $this->categoryItems->removeElement($categoryItem);
         }
 
+        return $this;
+    }
+
+    public function isVisibleOnFaqPage(): bool
+    {
+        return $this->visibleOnFaqPage;
+    }
+
+    public function setVisibleOnFaqPage(bool $visibleOnFaqPage): Category
+    {
+        $this->visibleOnFaqPage = $visibleOnFaqPage;
         return $this;
     }
 }
