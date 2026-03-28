@@ -1,0 +1,77 @@
+/* @theme: default; */
+
+.faq-category {
+    margin: $faq-category-margin;
+    padding: $faq-category-padding;
+    border: $faq-category-border;
+    border-radius: $faq-category-border-radius;
+
+    &__title {
+        font-size: $faq-category-title-font-size;
+        font-weight: $faq-category-title-font-weight;
+        color: $faq-category-title-color;
+        margin: $faq-category-title-margin;
+    }
+
+    &__items {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        border-top: $faq-items-border-top;
+    }
+
+    &__item {
+        &-question {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: $faq-question-padding;
+            font-size: $faq-question-font-size;
+            font-weight: $faq-question-font-weight;
+            color: $faq-question-color;
+            background: $faq-question-bg;
+            border: none;
+            border-bottom: $faq-question-border-bottom;
+            text-align: left;
+            cursor: pointer;
+
+            &:hover,
+            &:focus {
+                color: $faq-question-color-expanded;
+                text-decoration: none;
+                outline: none;
+            }
+
+            &__icon {
+                margin: $faq-question-icon-offset;
+                font-size: $faq-question-icon-size;
+                color: $faq-question-icon-color;
+                transition: $faq-question-icon-transition;
+                flex-shrink: 0;
+            }
+        }
+
+        &-answer {
+            display: none;
+            padding: $faq-answer-padding;
+        }
+
+        &--open {
+            .faq-category__item-question {
+                color: $faq-question-color-expanded;
+            }
+
+            .faq-category__item-question__icon {
+                transform: rotate(90deg);
+            }
+
+            .faq-category__item-answer {
+                display: block;
+            }
+        }
+
+        &:last-child .faq-category__item-question {
+            border-bottom: none;
+        }
+    }
+}

@@ -9,20 +9,27 @@
 {% endblock %}
 
 {% block _faq_categories_list_widget %}
-
-    <div class="faq-categories">
+    <div class="faq-categories"
+         data-page-component-module="oroui/js/app/components/view-component"
+         data-page-component-options="{{ {view: 'dylvnfaq/js/app/views/faq-view'}|json_encode }}">
         {% for category in categories %}
-            <div class="faq-category">
+            <div id="{{ category.code }}" class="faq-category">
                 <h2 class="faq-category__title">{{ category.defaultTitle }}</h2>
                 <ul class="faq-category__items">
                     {% for categoryItem in category.categoryItems %}
+                        {% set itemId = 'faq-item-' ~ categoryItem.id %}
                         {% set question = categoryItem.item.questions|localized_value %}
                         {% set answer = categoryItem.item.answers|localized_value %}
                         <li class="faq-category__item">
-                            <p class="faq-category__item-question">
+                            <button type="button"
+                                    class="faq-category__item-question"
+                                    aria-expanded="false"
+                                    aria-controls="{{ itemId }}">
+                                <i class="fa fa-chevron-right faq-category__item-question__icon" aria-hidden="true"></i>
                                 {{ question }}
-                            </p>
-                            <div class="faq-category__item-answer cms-typography">
+                            </button>
+                            <div id="{{ itemId }}"
+                                 class="faq-category__item-answer cms-typography">
                                 {{ answer|oro_html_sanitize }}
                             </div>
                         </li>

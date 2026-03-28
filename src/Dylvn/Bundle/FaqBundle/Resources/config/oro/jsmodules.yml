@@ -1,0 +1,3 @@
+dynamic-imports:
+    dylvnfaq:
+        - dylvnfaq/js/app/views/faq-view

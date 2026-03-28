@@ -1,0 +1,4 @@
+styles:
+    inputs:
+        - 'bundles/dylvnfaq/default/scss/variables/faq-config.scss'
+        - 'bundles/dylvnfaq/default/scss/components/faq.scss'

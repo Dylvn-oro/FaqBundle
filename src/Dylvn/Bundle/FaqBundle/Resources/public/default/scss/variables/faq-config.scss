@@ -1,0 +1,32 @@
+/* @theme: default; */
+
+// Category
+$faq-category-margin: 0 0 $offset-triple !default;
+$faq-category-padding: $offset-twice !default;
+$faq-category-border: 1px solid get-color('additional', 'light') !default;
+$faq-category-border-radius: $base-ui-element-border-radius !default;
+
+// Category title
+$faq-category-title-font-size: $headline3-font-size !default;
+$faq-category-title-font-weight: font-weight('bold') !default;
+$faq-category-title-color: get-color('additional', 'dark') !default;
+$faq-category-title-margin: 0 0 $offset-default !default;
+
+// Item list
+$faq-items-border-top: 1px solid get-color('additional', 'light') !default;
+
+// Question trigger (mirrors accordion-group__trigger)
+$faq-question-padding: $offset-default $offset-twice $offset-default 0 !default;
+$faq-question-font-size: $base-font-size !default;
+$faq-question-font-weight: font-weight('semi-bold') !default;
+$faq-question-color: get-color('additional', 'dark') !default;
+$faq-question-color-expanded: get-color('primary', 'base') !default;
+$faq-question-bg: transparent !default;
+$faq-question-border-bottom: 1px solid get-color('additional', 'light') !default;
+$faq-question-icon-size: 12px !default;
+$faq-question-icon-color: get-color('primary', 'base') !default;
+$faq-question-icon-transition: transform .15s ease !default;
+$faq-question-icon-offset: 0 $offset-default 0 0 !default;
+
+// Answer
+$faq-answer-padding: $offset-default 0 $offset-twice !default;
