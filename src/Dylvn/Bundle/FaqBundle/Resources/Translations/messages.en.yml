@@ -1,7 +1,11 @@
 dylvn:
     organization_label: 'Dylvn'
     faq:
-
+        content_widget:
+            faq:
+                label: 'FAQ'
+                categories:
+                    label: 'Categories'
         section:
             category:
                 general:

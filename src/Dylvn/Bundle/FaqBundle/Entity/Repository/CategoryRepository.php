@@ -22,6 +22,34 @@ class CategoryRepository extends ServiceEntityRepository
     }
 
     /**
+     * @param int[] $ids
+     * @return Category[]
+     */
+    public function findByIdsWithItems(array $ids): array
+    {
+        if (empty($ids)) {
+            return [];
+        }
+
+        return $this->createQueryBuilder('c')
+            ->addSelect('ci', 'i', 'iq', 'ia')
+            ->innerJoin('c.categoryItems', 'ci')
+            ->innerJoin('ci.item', 'i')
+            ->leftJoin('i.questions', 'iq')
+            ->leftJoin('i.answers', 'ia')
+            ->where('c.id IN (:ids)')
+            ->andWhere('c.enabled = :enabled')
+            ->andWhere('ci.enabled = :enabled')
+            ->andWhere('i.enabled = :enabled')
+            ->setParameter('ids', $ids)
+            ->setParameter('enabled', true)
+            ->orderBy('c.position', 'ASC')
+            ->addOrderBy('ci.position', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
      * @return Category[]
      */
     public function findVisibleOnFaqPage(): array

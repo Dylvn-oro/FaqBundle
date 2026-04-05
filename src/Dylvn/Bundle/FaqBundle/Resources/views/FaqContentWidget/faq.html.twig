@@ -1,0 +1,30 @@
+<div class="faq-widget">
+    {% for category in categories %}
+        <div id="{{ category.code }}" class="faq-category">
+            <h2 class="faq-category__title">{{ category.defaultTitle }}</h2>
+            <ul class="faq-category__items">
+                {% for categoryItem in category.categoryItems %}
+                    {% if categoryItem.enabled %}
+                        {% set itemId = 'faq-item-' ~ categoryItem.id %}
+                        {% set question = categoryItem.item.questions|localized_value %}
+                        {% set answer = categoryItem.item.answers|localized_value %}
+                        <li class="faq-category__item">
+                            <button type="button"
+                                    class="faq-category__item-question"
+                                    aria-expanded="false"
+                                    aria-controls="{{ itemId }}">
+                                <i class="fa fa-chevron-right faq-category__item-question__icon" aria-hidden="true"></i>
+                                {{ question }}
+                            </button>
+                            <div id="{{ itemId }}" class="faq-category__item-answer cms-typography">
+                                {{ answer|oro_html_sanitize }}
+                            </div>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <p class="faq-widget__empty">{{ 'dylvn.faq.content_widget.faq.no_categories'|trans }}</p>
+    {% endfor %}
+</div>

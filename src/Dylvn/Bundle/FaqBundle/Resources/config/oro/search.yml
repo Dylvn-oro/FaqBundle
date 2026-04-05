@@ -1,4 +1,22 @@
 search:
+    Dylvn\Bundle\FaqBundle\Entity\Category:
+        alias: dylvn_faq_category
+        route:
+            name: dylvn_faq_category_view
+            parameters:
+                id: id
+        search_template: '@DylvnFaqBundle/Category/searchResult.html.twig'
+        fields:
+            -   name: code
+                target_type: text
+                target_fields:
+                    - code
+            -
+                name: defaultTitle
+                target_type: text
+                target_fields:
+                    - defaultTitle
+
     Dylvn\Bundle\FaqBundle\Entity\Item:
         alias: dylvn_faq_item
         route:
@@ -8,15 +26,15 @@ search:
         search_template: '@DylvnFaq/Item/searchResult.html.twig'
         fields:
             -
-                name: question
+                name: defaultQuestion
                 target_type: text
                 target_fields:
-                    - question
+                    - defaultQuestion
             -
-                name: answer
+                name: defaultAnswer
                 target_type: text
                 target_fields:
-                    - answer
+                    - defaultAnswer
             -
                 name: categoryItems
                 relation_type: one-to-many

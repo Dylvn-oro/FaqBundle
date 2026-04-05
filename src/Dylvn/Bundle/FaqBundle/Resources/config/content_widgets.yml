@@ -1,0 +1,7 @@
+services:
+    dylvn_faq.content_widget.faq_type:
+        class: Dylvn\Bundle\FaqBundle\ContentWidget\FaqContentWidgetType
+        arguments:
+            - '@doctrine.orm.entity_manager'
+        tags:
+            - { name: oro_cms.content_widget.type }

@@ -19,6 +19,22 @@ services:
         tags:
             - { name: form.type, alias: dylvn_faq_category_item_collection_type }
 
+    dylvn_faq.form.type.category_multi_select:
+        class: Dylvn\Bundle\FaqBundle\Form\Type\CategoryMultiSelectType
+        arguments:
+            - '@doctrine.orm.entity_manager'
+        tags:
+            - { name: form.type, alias: dylvn_faq_category_multi_select_type }
+
+    dylvn_faq.form.autocomplete.category.search_handler:
+        class: Dylvn\Bundle\FaqBundle\Autocomplete\CategorySearchHandler
+        parent: oro_form.autocomplete.search_handler
+        arguments:
+            - 'Dylvn\Bundle\FaqBundle\Entity\Category'
+            - [ 'title' ]
+        tags:
+            - { name: oro_form.autocomplete.search_handler, alias: dylvn_faq_category, acl_resource: dylvn_faq_category_view }
+
     dylvn_faq.form.autocomplete.item.search_handler:
         parent: oro_form.autocomplete.search_handler
         arguments:

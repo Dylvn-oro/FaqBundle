@@ -14,9 +14,9 @@ layout:
                     blockType: container
                     options:
                         vars:
-                            categories: '=data["faq_page"].getCategories()'
+                            categories: '=data["categories"]'
             tree:
-                  page_content:
-                      faq_index_page:
-                          faq_page_title: ~
-                          faq_categories_list: ~
+                content_widget_container:
+                    faq_index_page:
+                        faq_page_title: ~
+                        faq_categories_list: ~

@@ -174,6 +174,11 @@ class Category implements
         $this->categoryItems = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->code;
+    }
+
     public function getId()
     {
         return $this->id;

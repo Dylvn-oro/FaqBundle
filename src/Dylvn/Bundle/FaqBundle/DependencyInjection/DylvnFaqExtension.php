@@ -18,5 +18,6 @@ class DylvnFaqExtension extends Extension
         $loader->load('form_types.yml');
         $loader->load('repositories.yml');
         $loader->load('layout.yml');
+        $loader->load('content_widgets.yml');
     }
 }
