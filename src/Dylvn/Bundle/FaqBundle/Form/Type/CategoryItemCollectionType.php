@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Dylvn\Bundle\FaqBundle\Form\Type;
 
-use Dylvn\Bundle\FaqBundle\Entity\CategoryItem;
 use Oro\Bundle\FormBundle\Form\Type\CollectionType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormInterface;

@@ -23,7 +23,7 @@ use Oro\Bundle\UserBundle\Entity\Ownership\AuditableUserAwareTrait;
  * )
  * @Config()
  */
-class CategoryItem  implements
+class CategoryItem implements
     DatesAwareInterface,
     OrganizationAwareInterface,
     ExtendEntityInterface

@@ -5,9 +5,7 @@ declare(strict_types=1);
 namespace Dylvn\Bundle\FaqBundle\Form\Type;
 
 use Dylvn\Bundle\FaqBundle\Entity\Item;
-use Oro\Bundle\CMSBundle\Form\Type\WYSIWYGValueType;
 use Oro\Bundle\FormBundle\Form\Type\OroRichTextType;
-use Oro\Bundle\LocaleBundle\Entity\LocalizedFallbackValue;
 use Oro\Bundle\LocaleBundle\Form\Type\LocalizedFallbackValueCollectionType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;

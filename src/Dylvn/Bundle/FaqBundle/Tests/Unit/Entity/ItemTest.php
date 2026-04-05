@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Dylvn\Bundle\FaqBundle\Tests\Unit\Entity;
 
-use Dylvn\Bundle\FaqBundle\Entity\Category;
 use Dylvn\Bundle\FaqBundle\Entity\CategoryItem;
 use Dylvn\Bundle\FaqBundle\Entity\Item;
 use Oro\Bundle\LocaleBundle\Entity\LocalizedFallbackValue;

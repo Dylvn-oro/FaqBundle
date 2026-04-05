@@ -18,7 +18,9 @@ use Twig\Environment;
 
 class FaqContentWidgetType extends AbstractContentWidgetType
 {
-    public function __construct(private EntityManagerInterface $entityManager) {}
+    public function __construct(private EntityManagerInterface $entityManager)
+    {
+    }
 
     public static function getName(): string
     {

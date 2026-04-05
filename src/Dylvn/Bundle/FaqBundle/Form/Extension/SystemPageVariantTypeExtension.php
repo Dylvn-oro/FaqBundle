@@ -4,13 +4,10 @@ declare(strict_types=1);
 
 namespace Dylvn\Bundle\FaqBundle\Form\Extension;
 
-use Oro\Bundle\FormBundle\Utils\FormUtils;
 use Oro\Bundle\NavigationBundle\Form\Type\RouteChoiceType;
 use Oro\Bundle\WebCatalogBundle\Form\Type\SystemPageVariantType;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormEvents;
 
 class SystemPageVariantTypeExtension extends AbstractTypeExtension
 {
