@@ -1,0 +1,22 @@
+layout:
+    actions:
+        - '@setBlockTheme':
+              themes: 'layout.html.twig'
+        - '@addTree':
+            items:
+                __faq_index_page:
+                    blockType: container
+                __faq_page_title:
+                    blockType: text
+                    options:
+                        text: 'dylvn.faq.frontend.page_title'
+                __faq_categories_list:
+                    blockType: container
+                    options:
+                        vars:
+                            categories: '=data["faq_page"].getCategories()'
+            tree:
+                  __root:
+                      __faq_index_page:
+                          __faq_page_title: ~
+                          __faq_categories_list: ~

@@ -1,22 +1,10 @@
 layout:
+    imports:
+        -
+            id: dylvn_faq
+            root: content_widget_container
     actions:
-        - '@setBlockTheme':
-              themes: 'layout.html.twig'
-        - '@addTree':
-            items:
-                faq_index_page:
-                    blockType: container
-                faq_page_title:
-                    blockType: text
-                    options:
-                        text: 'FAQ'
-                faq_categories_list:
-                    blockType: container
-                    options:
-                        vars:
-                            categories: '=data["categories"]'
-            tree:
-                content_widget_container:
-                    faq_index_page:
-                        faq_page_title: ~
-                        faq_categories_list: ~
+        - '@setOption':
+            id: faq_categories_list
+            optionName: vars.categories
+            optionValue: '=data["categories"]'

@@ -1,22 +1,16 @@
 layout:
+    imports:
+        -
+            id: dylvn_faq
+            root: page_content
     actions:
-        - '@setBlockTheme':
-              themes: 'layout.html.twig'
-        - '@addTree':
-            items:
-                faq_index_page:
-                    blockType: container
-                faq_page_title:
-                    blockType: text
-                    options:
-                        text: 'FAQ'
-                faq_categories_list:
-                    blockType: container
-                    options:
-                        vars:
-                            categories: '=data["faq_page"].getCategories()'
-            tree:
-                  page_content:
-                      faq_index_page:
-                          faq_page_title: ~
-                          faq_categories_list: ~
+        - '@setOption':
+            id: page_title
+            optionName: defaultValue
+            optionValue: 'dylvn.faq.frontend.page_title'
+        - '@setOption':
+            id: faq_categories_list
+            optionName: vars.categories
+            optionValue: '=data["faq_page"].getCategories()'
+        - '@remove':
+            id: faq_page_title

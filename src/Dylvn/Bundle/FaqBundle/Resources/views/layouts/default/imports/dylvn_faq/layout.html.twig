@@ -1,14 +1,14 @@
-{% block _faq_index_page_widget %}
+{% block __dylvn_faq__faq_index_page_widget %}
     <div class="faq-index-page">
         {{ block_widget(block) }}
     </div>
 {% endblock %}
 
-{% block _faq_page_title_widget %}
-    <h1 class="faq-index-page__title">{{ block.vars.text }}</h1>
+{% block __dylvn_faq__faq_page_title_widget %}
+    <h1 class="faq-index-page__title">{{ block.vars.text|trans }}</h1>
 {% endblock %}
 
-{% block _faq_categories_list_widget %}
+{% block __dylvn_faq__faq_categories_list_widget %}
     <div class="faq-categories"
          data-page-component-module="oroui/js/app/components/view-component"
          data-page-component-options="{{ {view: 'dylvnfaq/js/app/views/faq-view'}|json_encode }}">
