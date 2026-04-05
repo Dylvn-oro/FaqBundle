@@ -72,5 +72,21 @@ dylvn:
                     add: 'Add Category Item'
         frontend:
             page_title: "FAQ"
+        shortcut:
+            new_category:
+                label: 'Create Category'
+            list_categories:
+                label: 'List Categories'
+            new_item:
+                label: 'Create Item'
+            list_items:
+                label: 'List Items'
+        controller:
+            category:
+                saved:
+                    message: 'Category has been saved'
+            item:
+                saved:
+                    message: 'Item has been saved'
 
 

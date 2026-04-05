@@ -2,16 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Dylvn\FaqBundle\Tests\Unit\Entity\Category;
+namespace Dylvn\Bundle\FaqBundle\Tests\Unit\Entity;
 
 use Dylvn\Bundle\FaqBundle\Entity\Category;
 use Dylvn\Bundle\FaqBundle\Entity\CategoryItem;
-use Oro\Bundle\CMSBundle\Entity\TextContentVariant;
-use Oro\Bundle\CMSBundle\Tests\Unit\Entity\Stub\ContentBlock;
 use Oro\Bundle\LocaleBundle\Entity\LocalizedFallbackValue;
-use Oro\Bundle\OrganizationBundle\Entity\BusinessUnit;
 use Oro\Bundle\OrganizationBundle\Entity\Organization;
-use Oro\Bundle\ScopeBundle\Entity\Scope;
 use Oro\Bundle\UserBundle\Entity\User;
 use Oro\Component\Testing\Unit\EntityTestCaseTrait;
 
@@ -27,6 +23,7 @@ class CategoryTest extends \PHPUnit\Framework\TestCase
             ['owner', new User()],
             ['organization', new Organization()],
             ['enabled', true],
+            ['visibleOnFaqPage', false],
             ['position', 10],
             ['createdAt', new \DateTime()],
             ['updatedAt', new \DateTime()],

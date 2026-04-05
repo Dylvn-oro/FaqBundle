@@ -7,47 +7,50 @@ namespace Dylvn\Bundle\FaqBundle\Tests\Unit\Entity;
 use Dylvn\Bundle\FaqBundle\Entity\Category;
 use Dylvn\Bundle\FaqBundle\Entity\CategoryItem;
 use Dylvn\Bundle\FaqBundle\Entity\Item;
-use Oro\Bundle\LocaleBundle\Entity\LocalizedFallbackValue;
 use Oro\Bundle\OrganizationBundle\Entity\Organization;
 use Oro\Bundle\UserBundle\Entity\User;
 use Oro\Component\Testing\Unit\EntityTestCaseTrait;
 
-class ItemTest extends \PHPUnit\Framework\TestCase
+class CategoryItemTest extends \PHPUnit\Framework\TestCase
 {
     use EntityTestCaseTrait;
 
-    public function testAccessors()
+    public function testAccessors(): void
     {
-        $this->assertPropertyAccessors(new Item(), [
+        $this->assertPropertyAccessors(new CategoryItem(), [
             ['id', 1],
+            ['category', new Category()],
+            ['item', new Item()],
+            ['position', 5],
+            ['enabled', false],
             ['owner', new User()],
             ['organization', new Organization()],
-            ['enabled', true],
-            ['position', 10],
             ['createdAt', new \DateTime()],
             ['updatedAt', new \DateTime()],
         ]);
-
-        $this->assertPropertyCollections(new Item(), [
-            ['questions', new LocalizedFallbackValue()],
-            ['answers', new LocalizedFallbackValue()],
-            ['categoryItems', new CategoryItem()]
-        ]);
     }
 
-    public function testIsUpdatedAtSet()
+    public function testIsUpdatedAtSet(): void
     {
-        $entity = new Item();
+        $entity = new CategoryItem();
         $entity->setUpdatedAt(new \DateTime());
 
         $this->assertTrue($entity->isUpdatedAtSet());
     }
 
-    public function testIsUpdatedAtNotSet()
+    public function testIsUpdatedAtNotSet(): void
     {
-        $entity = new Item();
+        $entity = new CategoryItem();
         $entity->setUpdatedAt(null);
 
         $this->assertFalse($entity->isUpdatedAtSet());
+    }
+
+    public function testDefaults(): void
+    {
+        $entity = new CategoryItem();
+
+        $this->assertSame(0, $entity->getPosition());
+        $this->assertTrue($entity->isEnabled());
     }
 }
