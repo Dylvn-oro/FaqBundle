@@ -23,7 +23,7 @@ search:
             name: dylvn_faq_item_view
             parameters:
                 id: id
-        search_template: '@DylvnFaq/Item/searchResult.html.twig'
+        search_template: '@DylvnFaqBundle/Item/searchResult.html.twig'
         fields:
             -
                 name: defaultQuestion
