@@ -9,8 +9,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Oro\Bundle\EntityBundle\EntityProperty\DatesAwareInterface;
 use Oro\Bundle\EntityBundle\EntityProperty\DatesAwareTrait;
-use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
-use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\ConfigField;
+use Oro\Bundle\EntityConfigBundle\Metadata\Attribute\Config;
+use Oro\Bundle\EntityConfigBundle\Metadata\Attribute\ConfigField;
 use Oro\Bundle\EntityExtendBundle\Entity\ExtendEntityInterface;
 use Oro\Bundle\EntityExtendBundle\Entity\ExtendEntityTrait;
 use Oro\Bundle\LocaleBundle\Entity\Localization;
@@ -19,41 +19,31 @@ use Oro\Bundle\OrganizationBundle\Entity\OrganizationAwareInterface;
 use Oro\Bundle\UserBundle\Entity\Ownership\AuditableUserAwareTrait;
 
 /**
- * @ORM\Entity(repositoryClass="Dylvn\Bundle\FaqBundle\Entity\Repository\CategoryRepository")
- * @ORM\Table(
- *      name="dylvn_faq_category",
- * )
- * @Config(
- *      routeName="dylvn_faq_category_index",
- *      routeView="dylvn_faq_category_view",
- *      routeUpdate="dylvn_faq_category_update",
- *      defaultValues={
- *          "entity"={
- *              "icon"="fa-check-square"
- *          },
- *          "ownership"={
- *              "owner_type"="USER",
- *              "owner_field_name"="owner",
- *              "owner_column_name"="user_owner_id",
- *              "organization_field_name"="organization",
- *              "organization_column_name"="organization_id",
- *          },
- *          "dataaudit"={
- *              "auditable"=true
- *          },
- *          "security"={
- *              "type"="ACL",
- *              "group_name"="",
- *              "category"="marketing"
- *          }
- *      }
- * )
- * @ORM\HasLifecycleCallbacks()
  * @method LocalizedFallbackValue getDefaultTitle()
  * @method LocalizedFallbackValue getTitle(Localization $localization = null)
  * @method LocalizedFallbackValue getDefaultDescription()
  * @method LocalizedFallbackValue getDescription(Localization $localization = null)
  */
+#[ORM\Entity(repositoryClass: 'Dylvn\Bundle\FaqBundle\Entity\Repository\CategoryRepository')]
+#[Config(
+    routeName: 'dylvn_faq_category_index',
+    routeView: 'dylvn_faq_category_view',
+    routeUpdate: 'dylvn_faq_category_update',
+    defaultValues: [
+        'entity' => ['icon' => 'fa-check-square'],
+        'ownership' => [
+            'owner_type' => 'USER',
+            'owner_field_name' => 'owner',
+            'owner_column_name' => 'user_owner_id',
+            'organization_field_name' => 'organization',
+            'organization_column_name' => 'organization_id'
+        ],
+        'dataaudit' => ['auditable' => true],
+        'security' => ['type' => 'ACL', 'group_name' => '', 'category' => 'marketing']
+    ],
+)]
+#[ORM\HasLifecycleCallbacks]
+#[ORM\Table(name: 'dylvn_faq_category')]
 class Category implements
     DatesAwareInterface,
     OrganizationAwareInterface,
@@ -65,105 +55,56 @@ class Category implements
 
     /**
      * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
+    #[ORM\Column(name: 'id', type: 'integer')]
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: 'AUTO')]
     private $id;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="code", type="string", length=255, unique=true)
      */
+    #[ORM\Column(name: 'code', type: 'string', length: 255, unique: true)]
     private $code;
 
     /**
      * @var ArrayCollection|LocalizedFallbackValue[]
-     *
-     * @ORM\ManyToMany(
-     *      targetEntity="Oro\Bundle\LocaleBundle\Entity\LocalizedFallbackValue",
-     *      cascade={"ALL"},
-     *      orphanRemoval=true
-     * )
-     * @ORM\JoinTable(
-     *      name="dylvn_faq_category_title",
-     *      joinColumns={
-     *          @ORM\JoinColumn(name="category_id", referencedColumnName="id", onDelete="CASCADE")
-     *      },
-     *      inverseJoinColumns={
-     *          @ORM\JoinColumn(name="localized_value_id", referencedColumnName="id", onDelete="CASCADE", unique=true)
-     *      }
-     * )
-     * @ConfigField(
-     *      defaultValues={
-     *          "dataaudit"={
-     *              "auditable"=true
-     *          }
-     *      }
-     * )
      */
+    #[ORM\ManyToMany(targetEntity: 'Oro\Bundle\LocaleBundle\Entity\LocalizedFallbackValue', cascade: ['ALL'], orphanRemoval: true)]
+    #[ORM\JoinTable(name: 'dylvn_faq_category_title', joinColumns: [new ORM\JoinColumn(name: 'category_id', referencedColumnName: 'id', onDelete: 'CASCADE')], inverseJoinColumns: [new ORM\JoinColumn(name: 'localized_value_id', referencedColumnName: 'id', onDelete: 'CASCADE', unique: true)])]
+    #[ConfigField(defaultValues: ['dataaudit' => ['auditable' => true]])]
     private $titles;
 
     /**
      * @var Collection|LocalizedFallbackValue[]
-     *
-     * @ORM\ManyToMany(
-     *      targetEntity="Oro\Bundle\LocaleBundle\Entity\LocalizedFallbackValue",
-     *      cascade={"ALL"},
-     *      orphanRemoval=true
-     * )
-     * @ORM\JoinTable(
-     *      name="dylvn_faq_category_description",
-     *      joinColumns={
-     *          @ORM\JoinColumn(name="category_id", referencedColumnName="id", onDelete="CASCADE")
-     *      },
-     *      inverseJoinColumns={
-     *          @ORM\JoinColumn(name="localized_value_id", referencedColumnName="id", onDelete="CASCADE", unique=true)
-     *      }
-     * )
-     * @ConfigField(
-     *      defaultValues={
-     *          "dataaudit"={
-     *              "auditable"=true
-     *          }
-     *      }
-     * )
      */
+    #[ORM\ManyToMany(targetEntity: 'Oro\Bundle\LocaleBundle\Entity\LocalizedFallbackValue', cascade: ['ALL'], orphanRemoval: true)]
+    #[ORM\JoinTable(name: 'dylvn_faq_category_description', joinColumns: [new ORM\JoinColumn(name: 'category_id', referencedColumnName: 'id', onDelete: 'CASCADE')], inverseJoinColumns: [new ORM\JoinColumn(name: 'localized_value_id', referencedColumnName: 'id', onDelete: 'CASCADE', unique: true)])]
+    #[ConfigField(defaultValues: ['dataaudit' => ['auditable' => true]])]
     private $descriptions;
 
     /**
      * @var int
-     *
-     * @ORM\Column(name="position", type="integer", options={"default"=0})
      */
+    #[ORM\Column(name: 'position', type: 'integer', options: ['default' => 0])]
     private $position = 0;
 
     /**
      * @var bool
-     *
-     * @ORM\Column(type="boolean", options={"default"=true})
      */
+    #[ORM\Column(type: 'boolean', options: ['default' => true])]
     private $enabled = true;
 
     /**
      * @var Collection|CategoryItem[]
-     *
-     * @ORM\OneToMany(
-     *      targetEntity="Dylvn\Bundle\FaqBundle\Entity\CategoryItem",
-     *      mappedBy="category",
-     *      cascade={"persist","remove"},
-     *      orphanRemoval=true
-     * )
      */
+    #[ORM\OneToMany(targetEntity: 'Dylvn\Bundle\FaqBundle\Entity\CategoryItem', mappedBy: 'category', cascade: ['persist', 'remove'], orphanRemoval: true)]
     private $categoryItems;
 
     /**
      * @var bool
-     *
-     * @ORM\Column(name="visible_on_faq_page", type="boolean", options={"default"=true})
      */
+    #[ORM\Column(name: 'visible_on_faq_page', type: 'boolean', options: ['default' => true])]
     private bool $visibleOnFaqPage = true;
 
     public function __construct()

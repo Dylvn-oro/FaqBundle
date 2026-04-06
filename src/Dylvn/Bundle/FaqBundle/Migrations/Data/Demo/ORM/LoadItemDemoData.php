@@ -30,7 +30,7 @@ class LoadItemDemoData extends AbstractFixture implements ContainerAwareInterfac
 
         $data = Yaml::parse(file_get_contents($filePath));
 
-        $userRepository = $manager->getRepository('OroUserBundle:User');
+        $userRepository = $manager->getRepository(User::class);
         /** @var User $user */
         $user = $userRepository->findOneBy([]);
 

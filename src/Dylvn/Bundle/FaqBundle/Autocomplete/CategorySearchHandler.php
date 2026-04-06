@@ -4,11 +4,20 @@ declare(strict_types=1);
 
 namespace Dylvn\Bundle\FaqBundle\Autocomplete;
 
+use Oro\Bundle\EntityBundle\Provider\EntityNameResolver;
 use Oro\Bundle\FormBundle\Autocomplete\SearchHandler;
 
 class CategorySearchHandler extends SearchHandler
 {
-    public function convertItem($item)
+    private EntityNameResolver $entityNameResolver;
+
+    public function __construct($entityName, array $properties, EntityNameResolver $entityNameResolver)
+    {
+        parent::__construct($entityName, $properties);
+        $this->entityNameResolver = $entityNameResolver;
+    }
+
+    public function convertItem($item): array
     {
         $result = [];
 

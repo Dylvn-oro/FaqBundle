@@ -32,7 +32,7 @@ class LoadCategoryDemoData extends AbstractFixture implements ContainerAwareInte
 
         $data = Yaml::parse(file_get_contents($filePath));
 
-        $userRepository = $manager->getRepository('OroUserBundle:User');
+        $userRepository = $manager->getRepository(User::class);
         /** @var User $user */
         $user = $userRepository->findOneBy([]);
 

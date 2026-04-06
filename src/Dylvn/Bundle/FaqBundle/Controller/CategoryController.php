@@ -17,10 +17,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class CategoryController extends AbstractController
 {
-    /**
-     * @Route(path="/", name="dylvn_faq_category_index")
-     * @Template()
-     */
+    #[Route(path: '/', name: 'dylvn_faq_category_index')]
+    #[Template]
     public function indexAction(): array
     {
         return [
@@ -28,10 +26,8 @@ class CategoryController extends AbstractController
         ];
     }
 
-    /**
-     * @Route(path="/view/{id}", name="dylvn_faq_category_view", requirements={"id"="\d+"})
-     * @Template()
-     */
+    #[Route(path: '/view/{id}', name: 'dylvn_faq_category_view', requirements: ['id' => '\d+'])]
+    #[Template]
     public function viewAction(Category $entity): array
     {
         return [
@@ -39,10 +35,8 @@ class CategoryController extends AbstractController
         ];
     }
 
-    /**
-     * @Route(path="/create", name="dylvn_faq_category_create", options={"expose"=true})
-     * @Template("@DylvnFaq/Category/update.html.twig")
-     */
+    #[Route(path: '/create', name: 'dylvn_faq_category_create', options: ['expose' => true])]
+    #[Template('@DylvnFaq/Category/update.html.twig')]
     public function createAction(Request $request): array|RedirectResponse
     {
         $createMessage = $this->container->get(TranslatorInterface::class)->trans(
@@ -52,10 +46,8 @@ class CategoryController extends AbstractController
         return $this->update(new Category(), $request, $createMessage);
     }
 
-    /**
-     * @Route(path="/update/{id}", name="dylvn_faq_category_update", requirements={"id"="\d+"})
-     * @Template("@DylvnFaq/Category/update.html.twig")
-     */
+    #[Route(path: '/update/{id}', name: 'dylvn_faq_category_update', requirements: ['id' => '\d+'])]
+    #[Template('@DylvnFaq/Category/update.html.twig')]
     public function updateAction(Category $entity, Request $request): array|RedirectResponse
     {
         $updateMessage = $this->container->get(TranslatorInterface::class)->trans(

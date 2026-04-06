@@ -32,6 +32,7 @@ services:
         arguments:
             - 'Dylvn\Bundle\FaqBundle\Entity\Category'
             - [ 'title' ]
+            - '@oro_entity.entity_name_resolver'
         tags:
             - { name: oro_form.autocomplete.search_handler, alias: dylvn_faq_category, acl_resource: dylvn_faq_category_view }
 
@@ -40,5 +41,6 @@ services:
         arguments:
             - 'Dylvn\Bundle\FaqBundle\Entity\Item'
             - [ 'question' ]
+            - '@oro_entity.entity_name_resolver'
         tags:
             - { name: oro_form.autocomplete.search_handler, alias: dylvn_faq_item, acl_resource: dylvn_faq_item_view }

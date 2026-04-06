@@ -1,7 +1,7 @@
 datagrids:
     dylvn-faq-category-grid:
         extended_entity_name: Dylvn\Bundle\FaqBundle\Entity\Category
-#        acl_resource: dylvn_faq_category_view
+        acl_resource: dylvn_faq_category_view
         options:
             entityHint: dylvn.faq.category.entity_plural_label
         properties:
