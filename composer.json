@@ -3,10 +3,10 @@
   "description": "Oro FAQ (Frequently asked questions) integration",
   "type": "symfony-bundle",
   "keywords": ["Oro", "FAQ", "question", "Orocommerce"],
-  "license": "OSL-3.0",
+  "license": "MIT",
   "authors": [
     {
-      "name": "Dylvn"
+      "name": "Dylan Trochain"
     }
   ],
   "autoload": {
