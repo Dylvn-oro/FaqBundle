@@ -1,5 +1,4 @@
 dylvn:
-    organization_label: 'Dylvn'
     faq:
         content_widget:
             faq:
@@ -31,19 +30,28 @@ dylvn:
                 label: 'Organization'
             owner:
                 label: 'Owner'
-            titles:
-                label: 'Titles'
+            title:
+                label: 'Title'
             position:
                 label: 'Position'
             visible_on_faq_page:
                 label: 'Visible on FAQ page'
+            created_at:
+                label: 'Created At'
+            updated_at:
+                label: 'Updated At'
+            filters:
+                enabled: 'Enabled'
+                disabled: 'Disabled'
         item:
             entity_label: 'Item'
             entity_plural_label: 'Items'
-            answers:
-                label: 'Answers'
-            questions:
-                label: 'Questions'
+            category:
+                label: 'Category'
+            answer:
+                label: 'Answer'
+            question:
+                label: 'Question'
             id:
                 label: 'ID'
             organization:
@@ -56,6 +64,13 @@ dylvn:
                 label: 'Enabled'
             position:
                 label: 'Position'
+            created_at:
+                label: 'Created At'
+            updated_at:
+                label: 'Updated At'
+            filters:
+                enabled: 'Enabled'
+                disabled: 'Disabled'
         categoryitem:
             entity_label: 'Category Item'
             item:
@@ -88,5 +103,3 @@ dylvn:
             item:
                 saved:
                     message: 'Item has been saved'
-
-

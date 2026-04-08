@@ -40,10 +40,10 @@ datagrids:
                     dylvn.faq.category.filters.disabled: 0
                     dylvn.faq.category.filters.enabled: 1
             createdAt:
-                label: dylvn.faq.category.createdat.label
+                label: dylvn.faq.category.created_at.label
                 frontend_type: datetime
             updatedAt:
-                label: dylvn.faq.category.updatedat.label
+                label: dylvn.faq.category.updated_at.label
                 frontend_type: datetime
         sorters:
             columns:
@@ -86,14 +86,6 @@ datagrids:
                 updatedAt:
                     type: datetime
                     data_name: category.updatedAt
-#        actions:
-#            view:
-#                type: navigate
-#                label: oro.grid.action.view
-#                link: view_link
-#                icon: eye
-#                acl_resource: oro_cms_content_block_view
-#                rowAction: true
 
     dylvn-faq-item-grid:
         extended_entity_name: Dylvn\Bundle\FaqBundle\Entity\Item
@@ -127,8 +119,6 @@ datagrids:
                         - { join: item.categoryItems, alias: categoryItem }
                         - { join: categoryItem.category, alias: category }
         columns:
-            code:
-                label: dylvn.faq.item.code.label
             question:
                 label: dylvn.faq.item.question.label
             category_code:
@@ -142,15 +132,13 @@ datagrids:
                     dylvn.faq.item.filters.disabled: 0
                     dylvn.faq.item.filters.enabled: 1
             createdAt:
-                label: dylvn.faq.item.createdat.label
+                label: dylvn.faq.item.created_at.label
                 frontend_type: datetime
             updatedAt:
-                label: dylvn.faq.item.updatedat.label
+                label: dylvn.faq.item.updated_at.label
                 frontend_type: datetime
         sorters:
             columns:
-                code:
-                    data_name: item.code
                 question:
                     data_name: questions.string
                 category_code:
@@ -167,9 +155,6 @@ datagrids:
                 createdAt: DESC
         filters:
             columns:
-                code:
-                    type: string
-                    data_name: item.code
                 question:
                     type: string
                     data_name: question

@@ -1,11 +1,6 @@
 navigation:
     menu_config:
         items:
-            dylvn_tab:
-                label: dylvn.organization_label
-                uri: '#'
-                extras:
-                    icon: fa-question
             dylvn_faq_tab:
                 label: dylvn.faq.package_label
                 uri: '#'

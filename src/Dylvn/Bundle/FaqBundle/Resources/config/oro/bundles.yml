@@ -1,2 +1,2 @@
 bundles:
-    - { name: Dylvn\Bundle\FaqBundle\DylvnFaqBundle, priority: 1100 }
+    - { name: Dylvn\Bundle\FaqBundle\DylvnFaqBundle, priority: 1200 }

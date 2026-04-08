@@ -23,7 +23,7 @@ class ItemType extends AbstractType
                 'questions',
                 LocalizedFallbackValueCollectionType::class,
                 [
-                    'label' => 'dylvn.faq.item.questions.label',
+                    'label' => 'dylvn.faq.item.question.label',
                     'required' => true,
                     'entry_options' => ['constraints' => [new NotBlank()]]
                 ]
@@ -32,7 +32,7 @@ class ItemType extends AbstractType
                 'answers',
                 LocalizedFallbackValueCollectionType::class,
                 [
-                    'label' => 'dylvn.faq.item.answers.label',
+                    'label' => 'dylvn.faq.item.answer.label',
                     'required' => false,
                     'field' => 'text',
                     'entry_type' => OroRichTextType::class,

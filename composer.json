@@ -14,7 +14,8 @@
     "exclude-from-classmap": ["**/Tests/"]
   },
   "require": {
-    "oro/commerce": "5.1.*"
+    "oro/commerce": "5.1.*",
+    "dylvn/core-bundle": "5.1.*"
   },
   "repositories": {
     "oro": {

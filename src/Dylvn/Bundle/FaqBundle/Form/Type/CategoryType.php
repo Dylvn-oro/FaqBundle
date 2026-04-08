@@ -33,7 +33,7 @@ class CategoryType extends AbstractType
                 'titles',
                 LocalizedFallbackValueCollectionType::class,
                 [
-                    'label' => 'dylvn.faq.category.titles.label',
+                    'label' => 'dylvn.faq.category.title.label',
                     'required' => true,
                     'entry_options' => ['constraints' => [new NotBlank()]]
                 ]
