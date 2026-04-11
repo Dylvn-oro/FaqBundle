@@ -227,6 +227,7 @@ class Category implements
     {
         if (!$this->categoryItems->contains($categoryItem)) {
             $this->categoryItems->add($categoryItem);
+            $categoryItem->setCategory($this);
         }
 
         return $this;
