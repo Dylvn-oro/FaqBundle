@@ -1,0 +1,38 @@
+Dylvn\Bundle\FaqBundle\Entity\Category:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: code
+    properties:
+        code:
+            - NotBlank: ~
+            - Length:
+                max: 255
+        titles:
+            - NotBlank: ~
+            - Valid: ~
+        descriptions:
+            - Valid: ~
+        organization:
+            - NotBlank: ~
+        position:
+            - NotBlank: ~
+            - Type: integer
+
+Dylvn\Bundle\FaqBundle\Entity\CategoryItem:
+    properties:
+        position:
+            - NotBlank: ~
+            - Type: integer
+
+Dylvn\Bundle\FaqBundle\Entity\Item:
+    properties:
+        questions:
+            - NotBlank: ~
+            - Valid: ~
+        answers:
+            - Valid: ~
+        organization:
+            - NotBlank: ~
+        position:
+            - NotBlank: ~
+            - Type: integer
+
