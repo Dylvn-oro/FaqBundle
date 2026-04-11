@@ -1,0 +1,28 @@
+system_configuration:
+    groups:
+        dylvn_faq:
+            title: dylvn.faq.system_configuration.groups.faq.title
+            icon: fa-question-circle
+        dylvn_faq_general:
+            title: dylvn.faq.system_configuration.groups.general.title
+
+    fields:
+        dylvn_faq.faq_feature_enabled:
+            data_type: boolean
+            type: Oro\Bundle\ConfigBundle\Form\Type\ConfigCheckbox
+            priority: 10
+            options:
+                label: dylvn.faq.system_configuration.fields.faq_feature_enabled.label
+                tooltip: dylvn.faq.system_configuration.fields.faq_feature_enabled.tooltip
+
+    tree:
+        system_configuration:
+            platform:
+                children:
+                    dylvn:
+                        children:
+                            dylvn_faq:
+                                children:
+                                    dylvn_faq_general:
+                                        children:
+                                            - dylvn_faq.faq_feature_enabled

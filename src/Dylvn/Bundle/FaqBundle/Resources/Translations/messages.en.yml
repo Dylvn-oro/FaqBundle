@@ -1,5 +1,19 @@
 dylvn:
     faq:
+        system_configuration:
+            groups:
+                faq:
+                    title: 'FAQ'
+                general:
+                    title: 'General'
+            fields:
+                faq_feature_enabled:
+                    label: 'Enable FAQ Storefront Page'
+                    tooltip: 'When enabled, the FAQ page is accessible on the storefront.'
+        feature:
+            faq:
+                label: 'FAQ'
+                description: 'Enables the FAQ storefront page.'
         content_widget:
             faq:
                 label: 'FAQ'

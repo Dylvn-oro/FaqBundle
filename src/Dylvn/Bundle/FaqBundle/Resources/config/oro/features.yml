@@ -1,0 +1,7 @@
+features:
+    faq_controller:
+        label: dylvn.faq.feature.faq.label
+        description: dylvn.faq.feature.faq.description
+        toggle: dylvn_faq.faq_feature_enabled
+        routes:
+            - dylvn_faq_frontend_index
