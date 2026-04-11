@@ -43,7 +43,8 @@
 
             &__icon {
                 margin: $faq-question-icon-offset;
-                font-size: $faq-question-icon-size;
+                width: $faq-question-icon-width;
+                height: $faq-question-icon-height;
                 color: $faq-question-icon-color;
                 transition: $faq-question-icon-transition;
                 flex-shrink: 0;

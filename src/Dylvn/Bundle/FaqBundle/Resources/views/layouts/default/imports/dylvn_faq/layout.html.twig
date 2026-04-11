@@ -9,6 +9,7 @@
 {% endblock %}
 
 {% block __dylvn_faq__faq_categories_list_widget %}
+    {% import '@OroUI/layouts/renderIcon.html.twig' as renderIcon %}
     <div class="faq-categories"
          data-page-component-module="oroui/js/app/components/view-component"
          data-page-component-options="{{ {view: 'dylvnfaq/js/app/views/faq-view'}|json_encode }}">
@@ -25,7 +26,7 @@
                                     class="faq-category__item-question"
                                     aria-expanded="false"
                                     aria-controls="{{ itemId }}">
-                                <i class="fa fa-chevron-right faq-category__item-question__icon" aria-hidden="true"></i>
+                                {{ renderIcon.icon({name: 'chevron-right', extraClass: 'faq-category__item-question__icon'}) }}
                                 {{ question }}
                             </button>
                             <div id="{{ itemId }}"
