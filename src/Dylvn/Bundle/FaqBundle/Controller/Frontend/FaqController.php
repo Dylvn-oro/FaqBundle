@@ -6,7 +6,7 @@ namespace Dylvn\Bundle\FaqBundle\Controller\Frontend;
 
 use Oro\Bundle\LayoutBundle\Attribute\Layout;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 class FaqController extends AbstractController
 {

@@ -1,16 +1,16 @@
 dylvn_faq_category:
     resource:     "@DylvnFaqBundle/Controller/CategoryController.php"
-    type:         annotation
+    type:         attribute
     prefix:       /dylvn/faq/category
 
 dylvn_faq_item:
     resource:     "@DylvnFaqBundle/Controller/ItemController.php"
-    type:         annotation
+    type:         attribute
     prefix:       /dylvn/faq/item
 
 dylvn_faq_frontend:
     resource:     "@DylvnFaqBundle/Controller/Frontend/FaqController.php"
-    type:         annotation
+    type:         attribute
     prefix:       /faq
     options:
         frontend: true

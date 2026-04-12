@@ -8,17 +8,17 @@ use Doctrine\Persistence\ManagerRegistry;
 use Dylvn\Bundle\FaqBundle\Entity\Category;
 use Dylvn\Bundle\FaqBundle\Form\Type\CategoryType;
 use Oro\Bundle\FormBundle\Model\UpdateHandlerFacade;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Bridge\Twig\Attribute\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class CategoryController extends AbstractController
 {
     #[Route(path: '/', name: 'dylvn_faq_category_index')]
-    #[Template]
+    #[Template('@DylvnFaq/Category/index.html.twig')]
     public function indexAction(): array
     {
         return [
@@ -27,7 +27,7 @@ class CategoryController extends AbstractController
     }
 
     #[Route(path: '/view/{id}', name: 'dylvn_faq_category_view', requirements: ['id' => '\d+'])]
-    #[Template]
+    #[Template('@DylvnFaq/Category/view.html.twig')]
     public function viewAction(Category $entity): array
     {
         return [
