@@ -1,0 +1,51 @@
+{% extends '@OroUI/actions/view.html.twig' %}
+
+{% oro_title_set({params : {'%title%': entity|oro_format_name|default('N/A'|trans), '%entityName%': 'dylvn.faq.category.entity_label'|trans} }) %}
+
+{% block navButtons %}
+    {% import '@OroUI/macros.html.twig' as UI %}
+    {{ parent() }}
+    {% if is_granted('dylvn_faq_category_update') %}
+        {{ UI.editButton({'path': path('dylvn_faq_category_update', {'id': entity.id}), 'entity_label': 'dylvn.faq.category.entity_label'|trans}) }}
+    {% endif %}
+{% endblock %}
+
+{% block pageHeader %}
+    {% set breadcrumbs = {
+        'entity':      entity,
+        'indexPath':   path('dylvn_faq_category_index'),
+        'indexLabel':  'dylvn.faq.category.entity_plural_label'|trans,
+        'entityTitle': entity|oro_format_name|default('N/A'|trans)
+    } %}
+    {{ parent() }}
+{% endblock pageHeader %}
+
+{% block stats %}
+    <li>{{ 'oro.ui.created_at'|trans }}: {{ entity.createdAt ? entity.createdAt|oro_format_datetime : 'N/A' }}</li>
+    <li>{{ 'oro.ui.updated_at'|trans }}: {{ entity.updatedAt ? entity.updatedAt|oro_format_datetime : 'N/A' }}</li>
+{% endblock stats %}
+
+{% block content_data %}
+    {% import '@OroUI/macros.html.twig' as UI %}
+
+    {% set generalData %}
+        {{ UI.renderProperty('dylvn.faq.category.code.label'|trans, entity.code) }}
+        {{ UI.renderProperty('dylvn.faq.category.title.label'|trans, entity.defaultTitle.string|default('')) }}
+        {{ UI.renderHtmlProperty('dylvn.faq.category.descriptions.label'|trans, entity.defaultDescription.text|default('')) }}
+        {{ UI.renderProperty('dylvn.faq.category.position.label'|trans, entity.position) }}
+        {{ UI.renderProperty('dylvn.faq.category.enabled.label'|trans, entity.enabled ? 'Yes'|trans : 'No'|trans) }}
+        {{ UI.renderProperty('dylvn.faq.category.visible_on_faq_page.label'|trans, entity.visibleOnFaqPage ? 'Yes'|trans : 'No'|trans) }}
+    {% endset %}
+
+    {% set dataBlocks = [
+        {
+            'title': 'dylvn.faq.section.category.general.label'|trans,
+            'class': 'active',
+            'subblocks': [{'data': [generalData]}]
+        }
+    ] %}
+
+    {% set id = 'dylvn-faq-category-view' %}
+    {% set data = {'dataBlocks': dataBlocks} %}
+    {{ parent() }}
+{% endblock content_data %}
