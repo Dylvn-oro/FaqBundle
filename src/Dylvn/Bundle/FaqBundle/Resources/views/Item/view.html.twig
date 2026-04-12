@@ -1,0 +1,49 @@
+{% extends '@OroUI/actions/view.html.twig' %}
+
+{% oro_title_set({params : {'%title%': entity|oro_format_name|default('N/A'|trans), '%entityName%': 'dylvn.faq.item.entity_label'|trans} }) %}
+
+{% block navButtons %}
+    {% import '@OroUI/macros.html.twig' as UI %}
+    {{ parent() }}
+    {% if is_granted('dylvn_faq_item_update') %}
+        {{ UI.editButton({'path': path('dylvn_faq_item_update', {'id': entity.id}), 'entity_label': 'dylvn.faq.item.entity_label'|trans}) }}
+    {% endif %}
+{% endblock %}
+
+{% block pageHeader %}
+    {% set breadcrumbs = {
+        'entity':      entity,
+        'indexPath':   path('dylvn_faq_item_index'),
+        'indexLabel':  'dylvn.faq.item.entity_plural_label'|trans,
+        'entityTitle': entity|oro_format_name|default('N/A'|trans)
+    } %}
+    {{ parent() }}
+{% endblock pageHeader %}
+
+{% block stats %}
+    <li>{{ 'oro.ui.created_at'|trans }}: {{ entity.createdAt ? entity.createdAt|oro_format_datetime : 'N/A' }}</li>
+    <li>{{ 'oro.ui.updated_at'|trans }}: {{ entity.updatedAt ? entity.updatedAt|oro_format_datetime : 'N/A' }}</li>
+{% endblock stats %}
+
+{% block content_data %}
+    {% import '@OroUI/macros.html.twig' as UI %}
+
+    {% set generalData %}
+        {{ UI.renderProperty('dylvn.faq.item.question.label'|trans, entity.defaultQuestion.string|default('')) }}
+        {{ UI.renderHtmlProperty('dylvn.faq.item.answer.label'|trans, entity.defaultAnswer.text|default('')) }}
+        {{ UI.renderProperty('dylvn.faq.item.position.label'|trans, entity.position) }}
+        {{ UI.renderProperty('dylvn.faq.item.enabled.label'|trans, entity.enabled ? 'Yes'|trans : 'No'|trans) }}
+    {% endset %}
+
+    {% set dataBlocks = [
+        {
+            'title': 'dylvn.faq.section.item.general.label'|trans,
+            'class': 'active',
+            'subblocks': [{'data': [generalData]}]
+        }
+    ] %}
+
+    {% set id = 'dylvn-faq-item-view' %}
+    {% set data = {'dataBlocks': dataBlocks} %}
+    {{ parent() }}
+{% endblock content_data %}
