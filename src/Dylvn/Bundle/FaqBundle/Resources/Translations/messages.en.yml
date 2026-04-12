@@ -28,6 +28,8 @@ dylvn:
                     label: 'General'
         package_label: 'FAQ'
         category:
+            form:
+                select_placeholder: 'Select Category'
             entity_label: 'Category'
             entity_plural_label: 'Categories'
             category_items:
