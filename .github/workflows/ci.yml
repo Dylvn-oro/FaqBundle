@@ -73,7 +73,7 @@ jobs:
             - name: "PHP CS Fixer"
               working-directory: application
               run: |
-                  PHP_CS_FIXER_IGNORE_ENV=1 php bin/php-cs-fixer check \
+                  PHP_CS_FIXER_IGNORE_ENV=1 php bin/php-cs-fixer fix \
                     ../bundle/src \
                     --config=vendor/oro/platform/build/.php-cs-fixer.php \
                     --no-interaction
