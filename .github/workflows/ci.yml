@@ -1,0 +1,94 @@
+name: Static Analysis
+
+on:
+    pull_request:
+    push:
+        branches:
+            - "*.x"
+
+jobs:
+    static-analysis:
+        name: "Static Analysis (OroCommerce ${{ matrix.oro-version }})"
+        runs-on: ubuntu-latest
+
+        strategy:
+            fail-fast: false
+            matrix:
+                include:
+                    - oro-version: "5.1"
+                      php-version: "8.2"
+                      app-branch: "5.1"
+                    - oro-version: "6.0"
+                      php-version: "8.3"
+                      app-branch: "6.0"
+                    - oro-version: "6.1"
+                      php-version: "8.4"
+                      app-branch: "6.1"
+                    - oro-version: "7.0"
+                      php-version: "8.4"
+                      app-branch: "7.0"
+
+        steps:
+            - name: "Checkout bundle"
+              uses: actions/checkout@v4
+              with:
+                  path: bundle
+
+            - name: "Checkout OroCommerce application"
+              uses: actions/checkout@v4
+              with:
+                  repository: oroinc/orocommerce-application
+                  ref: ${{ matrix.app-branch }}
+                  path: application
+
+            - name: "Setup PHP ${{ matrix.php-version }}"
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php-version }}
+                  tools: composer:v2
+                  coverage: none
+
+            - name: "Add bundle as path repository"
+              working-directory: application
+              run: |
+                  composer config repositories.bundle path ../bundle
+                  composer config minimum-stability dev
+                  composer config prefer-stable true
+
+            - name: "Require bundle"
+              working-directory: application
+              run: composer require dylvn/faq-bundle:* --no-interaction --no-scripts
+
+            - name: "Cache Composer dependencies"
+              uses: actions/cache@v4
+              with:
+                  path: application/vendor
+                  key: composer-${{ matrix.oro-version }}-${{ hashFiles('application/composer.lock') }}
+                  restore-keys: composer-${{ matrix.oro-version }}-
+
+            - name: "Install Composer dependencies"
+              working-directory: application
+              run: composer install --no-interaction --no-scripts --prefer-dist
+
+            - name: "PHP CS Fixer"
+              working-directory: application
+              run: |
+                  PHP_CS_FIXER_IGNORE_ENV=1 php bin/php-cs-fixer check \
+                    ../bundle/src \
+                    --config=vendor/oro/platform/build/.php-cs-fixer.php \
+                    --no-interaction
+
+            - name: "PHPMD"
+              working-directory: application
+              run: |
+                  php bin/phpmd ../bundle/src text \
+                    vendor/oro/platform/build/phpmd.xml \
+                    --exclude */Tests/* \
+                    --no-baseline
+
+            - name: "PHPStan"
+              working-directory: application
+              run: |
+                  php bin/phpstan analyse ../bundle/src \
+                    --configuration=../bundle/phpstan.neon \
+                    --no-progress
