@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+/**
+ * @author Dylan Trochain <dylvn-dev@pm.me>
+ */
+
 namespace Dylvn\Bundle\FaqBundle;
 
 use Oro\Bundle\LocaleBundle\DependencyInjection\Compiler\EntityFallbackFieldsStoragePass;

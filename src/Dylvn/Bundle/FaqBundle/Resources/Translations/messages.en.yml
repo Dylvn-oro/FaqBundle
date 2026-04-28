@@ -30,7 +30,7 @@ dylvn:
         category:
             form:
                 select_placeholder: 'Select Category'
-            entity_label: 'Category'
+            entity_label: 'FAQ Category'
             entity_plural_label: 'Categories'
             category_items:
                 label: 'Category Items'
@@ -60,7 +60,7 @@ dylvn:
                 enabled: 'Enabled'
                 disabled: 'Disabled'
         item:
-            entity_label: 'Item'
+            entity_label: 'FAQ Item'
             entity_plural_label: 'Items'
             category:
                 label: 'Category'
