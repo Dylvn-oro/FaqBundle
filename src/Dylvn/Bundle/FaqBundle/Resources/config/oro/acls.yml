@@ -1,0 +1,70 @@
+acls:
+    dylvn_faq_category_view:
+        type: entity
+        class: Dylvn\Bundle\FaqBundle\Entity\Category
+        permission: VIEW
+        category: "marketing"
+        bindings:
+            - { class: Dylvn\Bundle\FaqBundle\Controller\CategoryController, method: indexAction }
+            - { class: Dylvn\Bundle\FaqBundle\Controller\CategoryController, method: viewAction }
+
+    dylvn_faq_category_create:
+        type: entity
+        class: Dylvn\Bundle\FaqBundle\Entity\Category
+        permission: CREATE
+        category: "marketing"
+        bindings:
+            - { class: Dylvn\Bundle\FaqBundle\Controller\CategoryController, method: createAction }
+
+    dylvn_faq_category_update:
+        type: entity
+        class: Dylvn\Bundle\FaqBundle\Entity\Category
+        permission: EDIT
+        category: "marketing"
+        bindings:
+            - { class: Dylvn\Bundle\FaqBundle\Controller\CategoryController, method: updateAction }
+
+    dylvn_faq_category_delete:
+        type: entity
+        class: Dylvn\Bundle\FaqBundle\Entity\Category
+        permission: DELETE
+        category: "marketing"
+
+    dylvn_faq_item_view:
+        type: entity
+        class: Dylvn\Bundle\FaqBundle\Entity\Item
+        permission: VIEW
+        category: "marketing"
+        bindings:
+            - { class: Dylvn\Bundle\FaqBundle\Controller\ItemController, method: indexAction }
+            - { class: Dylvn\Bundle\FaqBundle\Controller\ItemController, method: viewAction }
+
+    dylvn_faq_item_create:
+        type: entity
+        class: Dylvn\Bundle\FaqBundle\Entity\Item
+        permission: CREATE
+        category: "marketing"
+        bindings:
+            - { class: Dylvn\Bundle\FaqBundle\Controller\ItemController, method: createAction }
+
+    dylvn_faq_item_update:
+        type: entity
+        class: Dylvn\Bundle\FaqBundle\Entity\Item
+        permission: EDIT
+        category: "marketing"
+        bindings:
+            - { class: Dylvn\Bundle\FaqBundle\Controller\ItemController, method: updateAction }
+
+    dylvn_faq_item_delete:
+        type: entity
+        class: Dylvn\Bundle\FaqBundle\Entity\Item
+        permission: DELETE
+        category: "marketing"
+
+    dylvn_faq_frontend_index:
+        type: action
+        label: dylvn.faq.acl.action.frontend_index.label
+        group_name: "commerce"
+        category: "marketing"
+        bindings:
+            - { class: Dylvn\Bundle\FaqBundle\Controller\Frontend\FaqController, method: indexAction }
