@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+/**
+ * @author Dylan Trochain <dylvn-dev@pm.me>
+ */
+
 namespace Dylvn\Bundle\FaqBundle\Migrations\Schema;
 
 use Doctrine\DBAL\Schema\Schema;
